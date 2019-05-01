@@ -4,8 +4,8 @@
 #include <fstream>
 
 // Inclusão de .H
-//#include "aluno.h"
-//#include "curso.h"
+#include "aluno.h"
+#include "curso.h"
 
 using namespace std;
 
