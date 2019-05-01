@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #ifndef ALUNO_H
 #define ALUNO_H
 
@@ -26,3 +28,5 @@ typedef struct{
 Lista *criarLista();
 Aluno *criarAluno(int id, string nome, double nota, int opcao1, int opcao2);
 void insereLista(Aluno *aluno, Lista *l);
+
+#endif

@@ -16,8 +16,21 @@ int main(){
     cin >> qtdCursos;
     cin >> qtdAlunos;
 
+    cout <<"Quantidade de Cursos: "<< qtdCursos <<endl; 
     cout <<"Quantidade de Alunos: "<< qtdAlunos <<endl;
-    cout <<"Quantidade de Cursos: "<< qtdCursos <<endl;     
+
+    // Ler os cursos
+    for(int i = 0; i < qtdCursos; i++){
+        
+    }
+
+    // Ler os alunos
+    for(int i = 0; i < qtdAlunos; i++){
+
+    }
+    
+
+        
     
 
     return 0;
