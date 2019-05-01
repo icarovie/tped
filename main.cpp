@@ -13,6 +13,7 @@ int main(){
     // Variáveis Estaticas
     int qtdCursos,qtdAlunos;
     
+    
 
     return 0;
 }
