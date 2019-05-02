@@ -10,9 +10,15 @@
 using namespace std;
 
 void ordenarAlunos(Aluno **v,int qtd){
+    string nome;
+    double nota;
+    int op1;
+    int op2;
     for(int i=0; i<qtdAlunos; i++){
         for(int j = 1; i < qtdAlunos; j++){
-            if(v[i]->nota < v[j]->nota);
+            if(v[i]->nota < v[j]->nota){
+                
+            }
         }
     }
 }
