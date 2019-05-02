@@ -9,6 +9,14 @@
 
 using namespace std;
 
+void ordenarAlunos(Aluno **v,int qtd){
+    for(int i=0; i<qtdAlunos; i++){
+        for(int j = 1; i < qtdAlunos; j++){
+            if(v[i]->nota < v[j]->nota);
+        }
+    }
+}
+
 void printarAlunos(Aluno **v,int qtd){
     for(int i = 0;i < qtd ;i++){
         cout << v[i]->id<<" "<<v[i]->nome <<" "<< v[i]->nota<<endl;
@@ -63,7 +71,11 @@ int main(){
         alunos[i] = criarAluno(i,nomeAluno,notaAluno,opcao1,opcao2);
     }
 
+    // Printar Alunos
     printarAlunos(alunos,qtdAlunos);
+
+    // Ordenar os alunos
+    ordenarAlunos(alunos,qtdAlunos);
 
     return 0;
 }
