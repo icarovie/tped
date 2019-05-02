@@ -1,7 +1,7 @@
 #include "aluno.hpp"
 
 Lista *criarLista(){
-    Lista *l = (Lista*)(malloc(sizeof(Lista));
+    Lista *l = (Lista*)(malloc(sizeof(Lista)));
     l->inicio = NULL;
     l->fim = NULL;
     return l;
@@ -25,7 +25,7 @@ void insereLista(Aluno *aluno, Lista *l){
         l->fim = aluno;
     } else{
         l->fim->proximo = aluno;
-        aluno->anterior = aluno->fim;
+        aluno->anterior = l->fim;
     }
 }
 

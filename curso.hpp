@@ -13,8 +13,8 @@ typedef struct{
     string nome;
     int vagas;
 
-    Lista *classificados;
-    Lista *espera;
+    Lista *classificados = NULL;
+    Lista *espera = NULL;
 }Curso;
 
 
