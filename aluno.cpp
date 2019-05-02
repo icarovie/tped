@@ -17,6 +17,8 @@ Aluno *criarAluno(int id, string nome, double nota, int opcao1, int opcao2){
     a->alocado = false;
     a->anterior = NULL;
     a->proximo = NULL;
+
+    return a;
 }
 
 void insereLista(Aluno *aluno, Lista *l){

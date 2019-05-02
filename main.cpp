@@ -9,11 +9,20 @@
 
 using namespace std;
 
+void printarAlunos(Aluno **v,int qtd){
+    for(int i = 0;i < qtd ;i++){
+        cout << v[i]->id<<" "<<v[i]->nome <<" "<< v[i]->nota<<endl;
+    }
+}
+
 int main(){
     // Variáveis Estaticas
     int qtdCursos,qtdAlunos;
     string nomeCurso;
     int vagasCurso;
+    string nomeAluno;
+    double notaAluno;
+    int opcao1,opcao2;
 
     //Captura da quantidade de cursos e de alunos
     cout << "Digite a quantidade de Cursos e de Alunos: ";
@@ -24,6 +33,7 @@ int main(){
 
     // Vetor de Struct de Cursos
     Curso cursos[qtdCursos];
+    Aluno *alunos[qtdAlunos];
     
     // Ler os cursos
     for(int i = 0; i < qtdCursos; i++){
@@ -38,14 +48,22 @@ int main(){
         cursos[i].nome = nomeCurso;
         cursos[i].vagas = vagasCurso;
 
-        cout << "=== "<< cursos[i].id << "--> "<<cursos[i].nome<< " ==="<<endl;
-        cout << "N° De Vagas: "<<cursos[i].vagas <<endl;
+        cout << "ID "<< cursos[i].id << "--> "<<cursos[i].nome<<endl;
+        cout << "N De Vagas: "<<cursos[i].vagas <<endl;
     }
 
     // Ler os alunos
-    //for(int i = 0; i < qtdAlunos; i++){
+    for(int i = 0; i < qtdAlunos; i++){
+        // Entrada de Dados
+        cin.ignore();
+        cout << "Nome do Aluno: ";
+        getline(cin,nomeAluno);
+        cout << " Nota OP1 OP2: ";
+        cin >> notaAluno >> opcao1 >> opcao2;
+        alunos[i] = criarAluno(i,nomeAluno,notaAluno,opcao1,opcao2);
+    }
 
-    //}
+    printarAlunos(alunos,qtdAlunos);
 
     return 0;
 }
