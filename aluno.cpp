@@ -28,6 +28,7 @@ void insereLista(Aluno *aluno, Lista *l){
     } else{
         l->fim->proximo = aluno;
         aluno->anterior = l->fim;
+        l->fim = aluno;
     }
 }
 
@@ -35,6 +36,12 @@ void imprimeLista(Lista *l){
     if(l->inicio == NULL){
         cout << "Lista Vazia" << endl;
     } else{
-        // enquanto a o item não não for null vai imprimindo
+        Aluno *aux = l->inicio;
+        while(aux != NULL){
+            cout << aux->nome << endl;
+            aux = aux->proximo;
+        }
     }
+        cout << endl;
+        // enquanto a o item não não for null vai imprimindo
 }

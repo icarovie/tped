@@ -9,6 +9,30 @@
 
 using namespace std;
 
+void alocarAlunos(Aluno **v, int qtdAlunos,Curso *cursos,int qtdCursos){
+    for(int i = 0; i < qtdAlunos ; i++){
+        // Olho o aluno i
+        //Se tiver vaga na primeira opcao eu aloco ele e mudo a flag pra alocado
+        if(cursos[v[i]->opcao1].numeroDeAlocados < cursos[v[i]->opcao1].vagas){
+            v[i]->alocado =true;
+            insereLista( v[i], cursos[v[i]->opcao1].classificados);
+        } else{
+            insereLista( v[i], cursos[v[i]->opcao1].espera);
+            // Coloco o aluno na lista de espera da opcao1
+        }
+
+        if(v[i]->alocado == false){
+            if(cursos[v[i]->opcao2].numeroDeAlocados < cursos[v[i]->opcao2].vagas){
+                v[i]->alocado =true;
+                insereLista( v[i], cursos[v[i]->opcao1].classificados); 
+            } else{
+            // Coloco o aluno na lista de espera da opcao2
+            insereLista( v[i], cursos[v[i]->opcao1].espera);
+            }
+        } 
+    }
+}
+
 void ordenarAlunos(Aluno **v,int qtd){
     Aluno *aux;
 
@@ -61,6 +85,9 @@ int main(){
         cursos[i].nome = nomeCurso;
         cursos[i].vagas = vagasCurso;
 
+        cursos[i].classificados = criarLista();
+        cursos[i].espera = criarLista();
+
         cout << "ID "<< cursos[i].id << "--> "<<cursos[i].nome<<endl;
         cout << "N De Vagas: "<<cursos[i].vagas <<endl;
     }
@@ -83,6 +110,9 @@ int main(){
     printarAlunos(alunos,qtdAlunos);
 
     // Alocar nos Cursos
+    alocarAlunos(alunos,qtdAlunos,cursos,qtdCursos);
+
+    // Imprimir a lista
 
     return 0;
 }

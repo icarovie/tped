@@ -10,6 +10,7 @@ typedef struct{
     int id;
     string nome;
     int vagas;
+    int numeroDeAlocados;
 
     Lista *classificados = NULL;
     Lista *espera = NULL;
