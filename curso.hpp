@@ -6,8 +6,6 @@
 
 using namespace std;
 
-using namespace std;
-
 typedef struct{
     int id;
     string nome;

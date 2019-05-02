@@ -5,4 +5,6 @@ Curso *criarCurso(int id, string nome, int vagas){
     c->id = id;
     c->nome = nome;
     c->vagas = vagas;
+
+    return c;
 }
