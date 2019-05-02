@@ -10,14 +10,14 @@
 using namespace std;
 
 void ordenarAlunos(Aluno **v,int qtd){
-    string nome;
-    double nota;
-    int op1;
-    int op2;
-    for(int i=0; i<qtdAlunos; i++){
-        for(int j = 1; i < qtdAlunos; j++){
+    Aluno *aux;
+
+    for(int i=0; i<qtd; i++){
+        for(int j = i+1; j < qtd; j++){
             if(v[i]->nota < v[j]->nota){
-                
+                aux = v[j];
+                v[j]= v[i];
+                v[i] = aux;  
             }
         }
     }
@@ -42,11 +42,10 @@ int main(){
     cout << "Digite a quantidade de Cursos e de Alunos: ";
     cin >> qtdCursos;
     cin >> qtdAlunos;
-    //cout <<"Quantidade de Cursos: "<< qtdCursos <<endl; 
-    //cout <<"Quantidade de Alunos: "<< qtdAlunos <<endl;
 
     // Vetor de Struct de Cursos
     Curso cursos[qtdCursos];
+    // Ponteiro de Vetor de Alunos
     Aluno *alunos[qtdAlunos];
     
     // Ler os cursos
@@ -76,12 +75,14 @@ int main(){
         cin >> notaAluno >> opcao1 >> opcao2;
         alunos[i] = criarAluno(i,nomeAluno,notaAluno,opcao1,opcao2);
     }
+    // Ordenar os alunos
+    ordenarAlunos(alunos,qtdAlunos);
+    cout << "-----------------" <<endl;
 
     // Printar Alunos
     printarAlunos(alunos,qtdAlunos);
 
-    // Ordenar os alunos
-    ordenarAlunos(alunos,qtdAlunos);
+    // Alocar nos Cursos
 
     return 0;
 }
