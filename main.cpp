@@ -56,12 +56,14 @@ int main(){
         getline(cin,nomeAluno);
         cout << " Nota OP1 OP2: ";
         cin >> notaAluno >> opcao1 >> opcao2;
+        cout << "armazenei";
         alunos[i] = criarAluno(i,nomeAluno,notaAluno,opcao1,opcao2);
     }
     // Ordenar os alunos
+    /*
     ordenarAlunos(alunos,qtdAlunos);
     cout << "-----------------" <<endl;
-
+    */
     // Printar Alunos
     printarAlunos(alunos,qtdAlunos);
 

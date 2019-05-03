@@ -16,6 +16,7 @@ void ordenarAlunos(Aluno **v,int qtd){
 }
 
 void printarAlunos(Aluno **v,int qtd){
+    cout << "entrei";
     for(int i = 0;i < qtd ;i++){
         cout << v[i]->id<<" "<<v[i]->nome <<" "<< v[i]->nota<<endl;
     }
