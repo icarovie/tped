@@ -9,50 +9,6 @@
 
 using namespace std;
 
-void alocarAlunos(Aluno **v, int qtdAlunos,Curso *cursos,int qtdCursos){
-    for(int i = 0; i < qtdAlunos ; i++){
-        // Olho o aluno i
-        //Se tiver vaga na primeira opcao eu aloco ele e mudo a flag pra alocado
-        if(cursos[v[i]->opcao1].numeroDeAlocados < cursos[v[i]->opcao1].vagas){
-            v[i]->alocado =true;
-            insereLista( v[i], cursos[v[i]->opcao1].classificados);
-        } else{
-            insereLista( v[i], cursos[v[i]->opcao1].espera);
-            // Coloco o aluno na lista de espera da opcao1
-        }
-
-        if(v[i]->alocado == false){
-            if(cursos[v[i]->opcao2].numeroDeAlocados < cursos[v[i]->opcao2].vagas){
-                v[i]->alocado =true;
-                insereLista( v[i], cursos[v[i]->opcao1].classificados); 
-            } else{
-            // Coloco o aluno na lista de espera da opcao2
-            insereLista( v[i], cursos[v[i]->opcao1].espera);
-            }
-        } 
-    }
-}
-
-void ordenarAlunos(Aluno **v,int qtd){
-    Aluno *aux;
-
-    for(int i=0; i<qtd; i++){
-        for(int j = i+1; j < qtd; j++){
-            if(v[i]->nota < v[j]->nota){
-                aux = v[j];
-                v[j]= v[i];
-                v[i] = aux;  
-            }
-        }
-    }
-}
-
-void printarAlunos(Aluno **v,int qtd){
-    for(int i = 0;i < qtd ;i++){
-        cout << v[i]->id<<" "<<v[i]->nome <<" "<< v[i]->nota<<endl;
-    }
-}
-
 int main(){
     // Variáveis Estaticas
     int qtdCursos,qtdAlunos;
@@ -84,12 +40,12 @@ int main(){
         cursos[i].id = i;
         cursos[i].nome = nomeCurso;
         cursos[i].vagas = vagasCurso;
-
+        cursos[i].numeroDeAlocados = 0;
         cursos[i].classificados = criarLista();
         cursos[i].espera = criarLista();
 
-        cout << "ID "<< cursos[i].id << "--> "<<cursos[i].nome<<endl;
-        cout << "N De Vagas: "<<cursos[i].vagas <<endl;
+       /* cout << "ID "<< cursos[i].id << "--> "<<cursos[i].nome<<endl;
+        cout << "N De Vagas: "<<cursos[i].vagas <<endl;*/
     }
 
     // Ler os alunos
@@ -110,9 +66,21 @@ int main(){
     printarAlunos(alunos,qtdAlunos);
 
     // Alocar nos Cursos
+    /*
     alocarAlunos(alunos,qtdAlunos,cursos,qtdCursos);
 
     // Imprimir a lista
+    cout << "********************************"<<endl;
+    cout << "**** VESTIBULAR UFMHELL 2019 ****"<<endl;
+    cout << "********************************"<<endl;
+    for(int i = 0; i < qtdCursos; i++){
+        cout <<"===  "<< cursos[i].nome << "  ==="<<endl;
+        cout <<"          CLASSIFICADOS          "<<endl;
+        imprimeLista(cursos[i].classificados);
+        cout <<"          LISTA DE ESPERA        "<<endl;
+        //imprimeLista(cursos[i].espera);
+    }
+    */
 
     return 0;
 }

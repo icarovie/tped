@@ -1,5 +1,29 @@
 #include "aluno.hpp"
 
+// Funções De Aluno da Main
+void ordenarAlunos(Aluno **v,int qtd){
+    Aluno *aux;
+
+    for(int i=0; i<qtd; i++){
+        for(int j = i+1; j < qtd; j++){
+            if(v[i]->nota < v[j]->nota){
+                aux = v[j];
+                v[j]= v[i];
+                v[i] = aux;  
+            }
+        }
+    }
+}
+
+void printarAlunos(Aluno **v,int qtd){
+    for(int i = 0;i < qtd ;i++){
+        cout << v[i]->id<<" "<<v[i]->nome <<" "<< v[i]->nota<<endl;
+    }
+}
+
+
+
+// ==========================================================
 Lista *criarLista(){
     Lista *l = (Lista*)(malloc(sizeof(Lista)));
     l->inicio = NULL;
@@ -42,6 +66,5 @@ void imprimeLista(Lista *l){
             aux = aux->proximo;
         }
     }
-        cout << endl;
-        // enquanto a o item não não for null vai imprimindo
+    cout << endl;
 }

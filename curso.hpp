@@ -16,5 +16,7 @@ typedef struct{
     Lista *espera = NULL;
 }Curso;
 
+void alocarAlunos(Aluno **v, int qtdAlunos,Curso *cursos,int qtdCursos);
+
 
 #endif

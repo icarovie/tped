@@ -27,9 +27,16 @@ typedef struct{
     Aluno *fim;
 } Lista;
 
+// Funções De Aluno
+Aluno *criarAluno(int id, string nome, double nota, int opcao1, int opcao2);
+
+// Funcoes De Aluno Da Main
+void ordenarAlunos(Aluno **v,int qtd);
+void printarAlunos(Aluno **v,int qtd);
+
 // Funções De Lista
 Lista *criarLista();
-Aluno *criarAluno(int id, string nome, double nota, int opcao1, int opcao2);
 void insereLista(Aluno *aluno, Lista *l);
+void imprimeLista(Lista *l);
 
 #endif
