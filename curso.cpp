@@ -12,24 +12,19 @@
 
 void alocarAlunos(Aluno **v, int qtdAlunos,Curso *cursos,int qtdCursos){
     for(int i = 0; i < qtdAlunos ; i++){
-        //Se tiver vaga na primeira opcao eu aloco ele e mudo a flag pra alocado
+        // Se o numero de alocados for menor que o numero de vagas
         if(cursos[v[i]->opcao1].numeroDeAlocados < cursos[v[i]->opcao1].vagas){
-            v[i]->alocado = true;
-            insereLista( v[i], cursos[v[i]->opcao1].classificados);
-            //Dou update no numero de alocados
-            cursos[v[i]->opcao1].numeroDeAlocados++;
-            cout << "alocados : "<<cursos[v[i]->opcao1].numeroDeAlocados <<endl;
+            insereLista( v[i], cursos[v[i]->opcao1].classificados); // Insiro o aluno na lista de classificados do curso 1
+            v[i]->alocado = true; // Afirmo que ele foi alocado em um determinado curso
+            cursos[v[i]->opcao1].numeroDeAlocados++; // Dou update no numero de alocados
         } else{
-            // Coloco o aluno na lista de espera da opcao1
-            insereLista( v[i], cursos[v[i]->opcao1].espera);
-            if(v[i]->alocado == false){
-                if(cursos[v[i]->opcao2].numeroDeAlocados < cursos[v[i]->opcao2].vagas){
+            insereLista( v[i], cursos[v[i]->opcao1].espera); // Como nao tem vaga na opcao 1 coloco ele na lista de espera
+            if(v[i]->alocado == false){ // confiro se ele realmente nao esta alocado
+                if(cursos[v[i]->opcao2].numeroDeAlocados < cursos[v[i]->opcao2].vagas){ // Se tiver vaga na opcao 2
+                    insereLista( v[i], cursos[v[i]->opcao2].classificados); // adiciono ele na lista de classificados do curso 2
                     v[i]->alocado =true;
-                    insereLista( v[i], cursos[v[i]->opcao2].classificados);
-                    // Dou update no numero de alocados
                     cursos[v[i]->opcao2].numeroDeAlocados++;            
                 } else{
-                    // Coloco o aluno na lista de espera da opcao2
                     insereLista( v[i], cursos[v[i]->opcao2].espera);
                 }
             }

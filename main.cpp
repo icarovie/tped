@@ -46,28 +46,22 @@ int main(){
 
     // Ler os alunos
     for(int i = 0; i < qtdAlunos; i++){
-        cout << "i vale: "<<i <<endl;
         // Entrada de Dados
         cin.ignore();
         cout << "Nome do Aluno: ";
         getline(cin,nomeAluno);
         cout << " Nota OP1 OP2: ";
         cin >> notaAluno >> opcao1 >> opcao2;
-        cout << "===================" <<endl;
-        cout << nomeAluno <<endl;
-        cout << "Nota: "<< notaAluno<<endl;
-        cout << "Opcoes: " << opcao1 <<"," << opcao2 <<endl;
-
         alunos[i] = criarAluno(i,nomeAluno,notaAluno,opcao1,opcao2);
     }
 
     // Ordenar os alunos
-    //ordenarAlunos(alunos,qtdAlunos);
+    ordenarAlunos(alunos,qtdAlunos);
     // Printar Alunos
-    printarAlunos(alunos,qtdAlunos);
+    //printarAlunos(alunos,qtdAlunos);
 
     // Alocar nos Cursos
-    /*
+    
     alocarAlunos(alunos,qtdAlunos,cursos,qtdCursos);
 
     // Imprimir a lista
@@ -79,9 +73,9 @@ int main(){
         cout <<"          CLASSIFICADOS          "<<endl;
         imprimeLista(cursos[i].classificados);
         cout <<"          LISTA DE ESPERA        "<<endl;
-        //imprimeLista(cursos[i].espera);
+        imprimeLista(cursos[i].espera);
     }
-    */
+    
 
     return 0;
 }
