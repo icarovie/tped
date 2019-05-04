@@ -10,7 +10,6 @@
 using namespace std;
 
 int main(){
-    // Variáveis Estaticas
     int qtdCursos,qtdAlunos;
     string nomeCurso;
     int vagasCurso;
@@ -43,27 +42,27 @@ int main(){
         cursos[i].numeroDeAlocados = 0;
         cursos[i].classificados = criarLista();
         cursos[i].espera = criarLista();
-
-       /* cout << "ID "<< cursos[i].id << "--> "<<cursos[i].nome<<endl;
-        cout << "N De Vagas: "<<cursos[i].vagas <<endl;*/
     }
 
     // Ler os alunos
     for(int i = 0; i < qtdAlunos; i++){
+        cout << "i vale: "<<i <<endl;
         // Entrada de Dados
         cin.ignore();
         cout << "Nome do Aluno: ";
         getline(cin,nomeAluno);
         cout << " Nota OP1 OP2: ";
         cin >> notaAluno >> opcao1 >> opcao2;
-        cout << "armazenei";
+        cout << "===================" <<endl;
+        cout << nomeAluno <<endl;
+        cout << "Nota: "<< notaAluno<<endl;
+        cout << "Opcoes: " << opcao1 <<"," << opcao2 <<endl;
+
         alunos[i] = criarAluno(i,nomeAluno,notaAluno,opcao1,opcao2);
     }
+
     // Ordenar os alunos
-    /*
-    ordenarAlunos(alunos,qtdAlunos);
-    cout << "-----------------" <<endl;
-    */
+    //ordenarAlunos(alunos,qtdAlunos);
     // Printar Alunos
     printarAlunos(alunos,qtdAlunos);
 
