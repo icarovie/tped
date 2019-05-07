@@ -19,14 +19,12 @@ void alocarAlunos(Aluno **v, int qtdAlunos,Curso *cursos,int qtdCursos){
             cursos[v[i]->opcao1].numeroDeAlocados++; // Dou update no numero de alocados
         } else{
             insereLista( v[i], cursos[v[i]->opcao1].espera); // Como nao tem vaga na opcao 1 coloco ele na lista de espera
-            if(v[i]->alocado == false){ // confiro se ele realmente nao esta alocado
-                if(cursos[v[i]->opcao2].numeroDeAlocados < cursos[v[i]->opcao2].vagas){ // Se tiver vaga na opcao 2
-                    insereLista( v[i], cursos[v[i]->opcao2].classificados); // adiciono ele na lista de classificados do curso 2
-                    v[i]->alocado =true;
-                    cursos[v[i]->opcao2].numeroDeAlocados++;            
-                } else{
-                    insereLista( v[i], cursos[v[i]->opcao2].espera);
-                }
+            if(v[i]->alocado == false && cursos[v[i]->opcao2].numeroDeAlocados < cursos[v[i]->opcao2].vagas){ // confiro se ele realmente nao esta alocado
+                insereLista( v[i], cursos[v[i]->opcao2].classificados); // adiciono ele na lista de classificados do curso 2
+                v[i]->alocado =true;
+                cursos[v[i]->opcao2].numeroDeAlocados++;            
+            } else{
+                insereLista( v[i], cursos[v[i]->opcao2].espera);
             }
         }
     }
